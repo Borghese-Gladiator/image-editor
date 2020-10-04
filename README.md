@@ -1,3 +1,10 @@
+# Image Editor
+Create UI to use image editing functions writtein 220 class.
+
+## Author
+Borghese-Gladiator
+
+## Create-React-App README
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
