@@ -1,5 +1,15 @@
-# Image Editor
-Create UI to use image editing functions writtein 220 class.
+# Basic Image Editor
+Created tool to apply image editing functions from tutorial on uploaded image. Ended up using JS component (Slider) to store state, so user could change CSS styling with interactive progress bar.
+
+Create UI to apply CSS image editing functions with JS component to an uploaded image (functions found in [CSS Filter Effects Tutorial](https://www.sitepoint.com/css-filter-effects-blur-grayscale-brightness-and-more-in-css/))
+- brightness
+- contrast
+- grayscale
+- saturate
+- sepia
+- hue-rotate
+- invert
+- blur
 
 ## Author
 Borghese-Gladiator
