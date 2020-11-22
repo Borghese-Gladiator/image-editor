@@ -1,6 +1,7 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -23,8 +24,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
-      display: 'block',
+      display: 'flex',
     },
+  },
+  logo: {
+    height: '50px',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -50,8 +54,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimaryNavbar(props) {
   const classes = useStyles();
+  const { logo } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -144,9 +149,16 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Image Editor
-          </Typography>
+          <Button 
+            aria-label={"back to home image"}
+            color="inherit"
+            className={classes.title}
+          >
+            <Typography variant="h6" display="block" gutterBottom>
+              {"Image Editor"}
+            </Typography>
+            <img src={logo} className={classes.logo} alt="logo" />
+          </Button>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">

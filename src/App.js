@@ -9,7 +9,7 @@ import EditPage from './pages/EditPage';
 function App() {
   return (
     <div>
-      <Navbar />
+      <Navbar logo={logo} />
       <EditPage />
       <Footer />
     </div>
