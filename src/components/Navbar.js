@@ -18,13 +18,11 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'flex',
+      marginRight: theme.spacing(2),
     },
   },
   logo: {
@@ -141,15 +139,8 @@ export default function PrimaryNavbar(props) {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
           <Button 
+            edge="start"
             aria-label={"back to home image"}
             color="inherit"
             className={classes.title}
