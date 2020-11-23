@@ -1,22 +1,37 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Slider, Box, Container, Typography } from '@material-ui/core';
 
-const useStyles = makeStyles({
-  noTopBotMargin: {
-    paddingTop: 0,
-    paddingBottom: 0
-  }
-})
-
 export default function CustomizedSlider(props) {
-  const { color, name, setParentValue } = props;
+  // const { color, name, setParentValue } = props;
+  const { name, setParentValue } = props;
 
   const [value, setValue] = React.useState(30);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  return (
+    <Box display="flex" flexDirection="row">
+      <Container>
+        <Typography id="discrete-slider-small-steps" gutterBottom>
+          {name}
+        </Typography>
+      </Container>
+      
+      <Slider
+        value={typeof value === 'number' ? value : 0}
+        onChange={handleSliderChange}
+        aria-labelledby="input-slider"
+        defaultValue={20} 
+        onChangeCommitted={(e, val) => {
+          setParentValue(val);
+        }}
+      />
+    </Box>
+  );
+}
+/*
   const PrettoSlider = withStyles({
     root: {
       color: color,
@@ -47,31 +62,10 @@ export default function CustomizedSlider(props) {
     },
   })(Slider);
 
-  return (
-    <Box display="flex" flexDirection="row">
-      <Container>
-        <Typography id="discrete-slider-small-steps" gutterBottom>
-          {name}
-        </Typography>
-      </Container>
-      
-      <Slider
-        value={typeof value === 'number' ? value : 0}
-        onChange={handleSliderChange}
-        aria-labelledby="input-slider"
-        defaultValue={20} 
-        onChangeCommitted={(e, val) => {
-          setParentValue(val);
-        }}
-      />
-    </Box>
-  );
-}
-/*
-      <PrettoSlider
-        value={value}
-        onChange={handleSliderChange}
-        valueLabelDisplay="auto"
-        aria-label="pretto slider"
-      />
+  <PrettoSlider
+    value={value}
+    onChange={handleSliderChange}
+    valueLabelDisplay="auto"
+    aria-label="pretto slider"
+  />
 */
