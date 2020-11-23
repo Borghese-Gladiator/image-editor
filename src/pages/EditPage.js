@@ -39,7 +39,7 @@ export default function EditPage() {
 
   return (
     <Container className={classes.root}>
-      <h2>Image Editor</h2>
+      <h3>Easily Apply CSS Filter Effects on Images</h3>
       <Grid container spacing={3} className={classes.containerRoot} >
         <Grid item xs={6} sm={6}>
           <ImageUpload cardName="Input Image" imageGallery={galleryImageList} />
