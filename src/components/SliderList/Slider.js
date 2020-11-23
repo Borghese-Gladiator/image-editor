@@ -10,7 +10,10 @@ const useStyles = makeStyles({
 })
 
 export default function CustomizedSlider(props) {
-  const { color, name } = props;
+  const { color, name, setParentValue } = props;
+  const handleChange = (e, val) => {
+    setParentValue(val);
+  }
   const classes = useStyles();
   const PrettoSlider = withStyles({
     root: {
@@ -45,7 +48,9 @@ export default function CustomizedSlider(props) {
   return (
     <div>
       <h3 className={classes.noTopBotMargin}>{name}</h3>
-      <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
+      <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} 
+        onChange={handleChange}
+      />
     </div>
   );
 }
