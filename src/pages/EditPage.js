@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 // custom components
 import ImageUpload from '../components/ImageUpload';
+import SliderList from '../components/SliderList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,12 @@ const galleryImageList = [
 
 export default function EditPage(props) {
   const classes = useStyles();
+  const sliderList = [
+    { color: '#52af77' },
+    { color: '#52af77' },
+    { color: '#52af77' },
+    { color: '#52af77' },
+  ]
 
   return (
     <Container className={classes.root}>
@@ -38,6 +45,7 @@ export default function EditPage(props) {
         </Grid>
         <Grid item xs={6} sm={6}>
           <Paper className={classes.paper}>xs=12 sm=6</Paper>
+          <SliderList sliderList={sliderList} />
         </Grid>
       </Grid>
     </Container>
