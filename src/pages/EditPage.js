@@ -7,11 +7,10 @@ import SliderList from '../components/SliderList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    textAlign: "center",
     flexGrow: 1,
   },
   containerRoot: {
-    padding: theme.spacing(0, 0, 30),
+    padding: theme.spacing(10, 0, 30),
   }
 }));
 
@@ -31,26 +30,44 @@ const sliderList = [
   { id: 3, color: '#3292a8', name: "Contrast" },
   { id: 4, color: '#5e5e5e', name: "Drop Shadow" },
   { id: 5, color: '#5e5e5e', name: "Grayscale" },
-  { id: 6, color: '#5e5e5e', name: "Hue Rotatee" },
+  { id: 6, color: '#5e5e5e', name: "Hue Rotate" },
   { id: 7, color: '#5e5e5e', name: "Invert" },
   { id: 8, color: '#5e5e5e', name: "Opacity" },
   { id: 9, color: '#5e5e5e', name: "Saturate" },
   { id: 10, color: '#5e5e5e', name: "Sepia" }
-]
+];
 
 export default function EditPage() {
   const classes = useStyles();
-  const updateImageFilter = (num, id) => {
-    console.log(num);
-    console.log(id);
+  const [filterObjList, setFilterObjList] = React.useState([
+    { id: 1, value: 20, name: "Blur" },
+    { id: 2, value: 20, name: "Brightness" },
+    { id: 3, value: 20, name: "Contrast" },
+    { id: 4, value: 20, name: "Drop Shadow" },
+    { id: 5, value: 20, name: "Grayscale" },
+    { id: 6, value: 20, name: "Hue Rotate" },
+    { id: 7, value: 20, name: "Invert" },
+    { id: 8, value: 20, name: "Opacity" },
+    { id: 9, value: 20, name: "Saturate" },
+    { id: 10, value: 20, name: "Sepia" }
+  ])
+  const updateImageFilter = (newVal, id) => {
+    setFilterObjList(
+      filterObjList.map((item, idx) => {
+        if (item.id === id) {
+          item.value = newVal;
+          return item;
+        }
+        return item;
+      })
+    )
   }
 
   return (
     <Container className={classes.root}>
-      <h3>Easily Apply CSS Filter Effects on Images</h3>
       <Grid container spacing={3} className={classes.containerRoot} >
         <Grid item xs={6} sm={6}>
-          <ImageUpload cardName="Input Image" imageGallery={galleryImageList} />
+          <ImageUpload cardName="Input Image" imageGallery={galleryImageList} filterObjList={filterObjList} />
         </Grid>
         <Grid item xs={6} sm={6}>
           <SliderList sliderList={sliderList} updateImageFilter={updateImageFilter} />

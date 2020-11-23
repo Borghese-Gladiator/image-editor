@@ -105,7 +105,7 @@ class ImageUploadCard extends React.Component {
     const reader = new FileReader();
     var url = reader.readAsDataURL(file);
 
-    reader.onloadend = function(e) {
+    reader.onloadend = function (e) {
       this.setState({
         selectedFile: [reader.result]
       });
@@ -169,7 +169,7 @@ class ImageUploadCard extends React.Component {
     var reader = new FileReader();
     var url = reader.readAsDataURL(file);
 
-    reader.onloadend = function(e) {
+    reader.onloadend = function (e) {
       this.setState({
         selectedFile: [reader.result]
       });
@@ -308,7 +308,8 @@ class ImageUploadCard extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, filterObjList } = this.props;
+    console.log(filterObjList);
 
     return (
       <React.Fragment>
@@ -324,6 +325,15 @@ class ImageUploadCard extends React.Component {
         </div>
       </React.Fragment>
     );
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return nextProps.filterObjList !== this.state.filterObjList;
+  }
+
+  componentDidUpdate(props) {
+    // Desired operations: ex setting state
+    console.log(props.filterObjList)
   }
 }
 

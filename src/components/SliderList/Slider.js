@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Slider from '@material-ui/core/Slider';
+import { Slider, Box, Container, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   noTopBotMargin: {
@@ -11,10 +11,12 @@ const useStyles = makeStyles({
 
 export default function CustomizedSlider(props) {
   const { color, name, setParentValue } = props;
-  const handleChange = (e, val) => {
-    setParentValue(val);
-  }
-  const classes = useStyles();
+
+  const [value, setValue] = React.useState(30);
+
+  const handleSliderChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const PrettoSlider = withStyles({
     root: {
       color: color,
@@ -46,11 +48,30 @@ export default function CustomizedSlider(props) {
   })(Slider);
 
   return (
-    <div>
-      <h3 className={classes.noTopBotMargin}>{name}</h3>
-      <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} 
-        onChange={handleChange}
+    <Box display="flex" flexDirection="row">
+      <Container>
+        <Typography id="discrete-slider-small-steps" gutterBottom>
+          {name}
+        </Typography>
+      </Container>
+      
+      <Slider
+        value={typeof value === 'number' ? value : 0}
+        onChange={handleSliderChange}
+        aria-labelledby="input-slider"
+        defaultValue={20} 
+        onChangeCommitted={(e, val) => {
+          setParentValue(val);
+        }}
       />
-    </div>
+    </Box>
   );
 }
+/*
+      <PrettoSlider
+        value={value}
+        onChange={handleSliderChange}
+        valueLabelDisplay="auto"
+        aria-label="pretto slider"
+      />
+*/
