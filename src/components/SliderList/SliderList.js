@@ -8,7 +8,7 @@ export default function SliderList(props) {
     <div>
       {sliderList.map((val, idx) => {
         return (
-          <Slider color={val.color} />
+          <Slider color={val.color} name={val.name} />
         )
       })}
     </div>

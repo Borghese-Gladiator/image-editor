@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   containerRoot: {
-    padding: theme.spacing(25, 0, 55),
+    padding: theme.spacing(0, 0, 30),
   }
 }));
 
@@ -27,14 +27,15 @@ const galleryImageList = [
   "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg"
 ];
 
-export default function EditPage(props) {
+const sliderList = [
+  { color: '#52af77', name: "Grayscale" },
+  { color: '#32a852', name: "Grayscale" },
+  { color: '#3292a8', name: "Grayscale" },
+  { color: '#5e5e5e', name: "Grayscale" },
+]
+
+export default function EditPage() {
   const classes = useStyles();
-  const sliderList = [
-    { color: '#52af77' },
-    { color: '#52af77' },
-    { color: '#52af77' },
-    { color: '#52af77' },
-  ]
 
   return (
     <Container className={classes.root}>
@@ -44,7 +45,6 @@ export default function EditPage(props) {
           <ImageUpload cardName="Input Image" imageGallery={galleryImageList} />
         </Grid>
         <Grid item xs={6} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
           <SliderList sliderList={sliderList} />
         </Grid>
       </Grid>

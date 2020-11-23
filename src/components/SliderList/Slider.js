@@ -1,9 +1,17 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 
+const useStyles = makeStyles({
+  noTopBotMargin: {
+    paddingTop: 0,
+    paddingBottom: 0
+  }
+})
+
 export default function CustomizedSlider(props) {
-  const { color } = props;
+  const { color, name } = props;
+  const classes = useStyles();
   const PrettoSlider = withStyles({
     root: {
       color: color,
@@ -35,6 +43,9 @@ export default function CustomizedSlider(props) {
   })(Slider);
 
   return (
-    <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
+    <div>
+      <h3 className={classes.noTopBotMargin}>{name}</h3>
+      <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
+    </div>
   );
 }
