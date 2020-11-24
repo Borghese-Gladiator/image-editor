@@ -1,39 +1,91 @@
 import React from 'react';
-import { Slider, Box, Grid, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { InputLabel, OutlinedInput, TextField, Slider, Box, Grid, Typography, Input } from '@material-ui/core';
+import { spacing } from '@material-ui/system';
 
-export default function CustomizedSlider(props) {
+const useStyles = makeStyles({
+  root: {
+    width: 250,
+  },
+  input: {
+    width: 70,
+    height: 30
+  },
+});
+
+export default function InputSlider(props) {
+  const classes = useStyles();
   // const { color, name, setParentValue } = props;
   const { name, defaultValue, setParentValue } = props;
-
   const [value, setValue] = React.useState(defaultValue);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const handleInputChange = (event) => {
+    setValue(event.target.value === '' ? '' : Number(event.target.value));
+  };
+
+  const handleBlur = () => {
+    if (value < 0) {
+      setValue(0);
+    } else if (value > 100) {
+      setValue(100);
+    }
+  };
+
   return (
-    <Box display="flex" flexDirection="row">
-      <Grid item xs={3}>
-        <Typography id="discrete-slider-small-steps" gutterBottom>
-          {name}
-        </Typography>
-      </Grid>
-      <Grid item xs={9}>
-        <Slider
-          value={typeof value === 'number' ? value : 0}
-          onChange={handleSliderChange}
-          aria-labelledby="input-slider"
-          valueLabelDisplay="auto"
-          onChangeCommitted={(e, val) => {
-            setParentValue(val);
-          }}
-        />
+    <Box my={2} display="flex" flexDirection="row">
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={2}>
+          <Typography id="discrete-slider-small-steps" gutterBottom>
+            {name}
+          </Typography>
+        </Grid>
+        <Grid item xs={7}>
+          <Slider
+            value={typeof value === 'number' ? value : 0}
+            onChange={handleSliderChange}
+            aria-labelledby="input-slider"
+            valueLabelDisplay="auto"
+            onChangeCommitted={(e, val) => {
+              setParentValue(val);
+            }}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <OutlinedInput
+            className={classes.input}
+            value={value}
+            margin="dense"
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            inputProps={{
+              step: 10,
+              min: 0,
+              max: 100,
+              type: 'number',
+              'aria-labelledby': 'input-slider',
+            }}
+            label="Name"
+          />
+        </Grid>
       </Grid>
     </Box>
   );
 }
 
+
 /*
+
+          <TextField
+            id="filled-helperText"
+            label="Helper text"
+            defaultValue="Default Value"
+            helperText="Some important text"
+            variant="filled"
+          />
   const PrettoSlider = withStyles({
     root: {
       color: color,
