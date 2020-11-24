@@ -40,15 +40,15 @@ const sliderList = [
 export default function EditPage() {
   const classes = useStyles();
   const [filterObjList, setFilterObjList] = React.useState([
-    { id: 1, value: 20, name: "blur", defaultVal: "0px" },
-    { id: 2, value: 20, name: "brightness", defaultVal: "100%" },
-    { id: 3, value: 20, name: "contrast", defaultVal: "100%" },
-    { id: 4, value: 20, name: "grayscale", defaultVal: "0%" },
-    { id: 5, value: 20, name: "hue-rotate", defaultVal: "0deg" },
-    { id: 6, value: 20, name: "invert", defaultVal: "0%" },
-    { id: 7, value: 20, name: "opacity", defaultVal: "100%" },
-    { id: 8, value: 20, name: "saturate", defaultVal: "100%" },
-    { id: 9, value: 20, name: "sepia", defaultVal: "0%" }
+    { id: 1, value: 0, name: "blur", defaultVal: "0px" },
+    { id: 2, value: 100, name: "brightness", defaultVal: "100%" },
+    { id: 3, value: 100, name: "contrast", defaultVal: "100%" },
+    { id: 4, value: 0, name: "grayscale", defaultVal: "0%" },
+    { id: 5, value: 0, name: "hue-rotate", defaultVal: "0deg" },
+    { id: 6, value: 0, name: "invert", defaultVal: "0%" },
+    { id: 7, value: 100, name: "opacity", defaultVal: "100%" },
+    { id: 8, value: 100, name: "saturate", defaultVal: "100%" },
+    { id: 9, value: 0, name: "sepia", defaultVal: "0%" }
   ])
   const updateImageFilter = (newVal, id) => {
     setFilterObjList(
