@@ -4,6 +4,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
+import CardMedia from '@material-ui/core/CardMedia';
 
 import Fab from "@material-ui/core/Fab";
 import Grid from "@material-ui/core/Grid";
@@ -242,6 +243,7 @@ class ImageUploadCard extends React.Component {
     const { classes } = this.props;
     const listItems = this.props.imageGallery.map(url => (
       <div
+        key={`${url}`}
         onClick={value => this.handleAvatarClick({ url })}
         style={{
           padding: "5px 5px 5px 5px",
@@ -281,17 +283,28 @@ class ImageUploadCard extends React.Component {
     );
   }
 
-  renderUploadedState() {
-    const { classes } = this.props;
+  renderUploadedState(filterObjList) {
+    // blur(0px) brightness(100%) contrast(100%) drop-shadow(0px 0px 0px black) grayscale(0%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%);
+    let a = "";
+    for (const filterObj of filterObjList) {
+      if (filterObj.name === 'blur') {
+        a += `${filterObj.name}(${filterObj.value}px) `;
+      } else if (filterObj.name === 'hue-rotate') {
+        a += `${filterObj.name}(${filterObj.value}deg) `;
+      } else {
+        a += `${filterObj.name}(${filterObj.value}%) `;  
+      }
+    }
+    console.log(a);
 
     return (
       <React.Fragment>
         <CardActionArea onClick={this.imageResetHandler}>
           <img
             width="100%"
-            className={classes.media}
             src={this.state.selectedFile}
             alt="Uploaded or Selected"
+            style={{filter: `${a}`, color: "brown" }}
           />
         </CardActionArea>
       </React.Fragment>
@@ -309,7 +322,6 @@ class ImageUploadCard extends React.Component {
 
   render() {
     const { classes, filterObjList } = this.props;
-    console.log(filterObjList);
 
     return (
       <React.Fragment>
@@ -320,7 +332,7 @@ class ImageUploadCard extends React.Component {
               (this.state.mainState === "gallery" &&
                 this.renderGalleryState()) ||
               (this.state.mainState === "uploaded" &&
-                this.renderUploadedState())}
+                this.renderUploadedState(filterObjList))}
           </Card>
         </div>
       </React.Fragment>
@@ -333,7 +345,7 @@ class ImageUploadCard extends React.Component {
 
   componentDidUpdate(props) {
     // Desired operations: ex setting state
-    console.log(props.filterObjList)
+    console.log(props.filterObjList);
   }
 }
 
