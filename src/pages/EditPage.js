@@ -26,15 +26,15 @@ const galleryImageList = [
 // each slider has unique identifer id
 // REMOVED drop-shadow(0px 0px 0px black)
 const sliderList = [
-  { id: 1, color: '#52af77', displayName: "Blur", defaultVal: 0},
-  { id: 2, color: '#32a852', displayName: "Brightness", defaultVal: 100 },
-  { id: 3, color: '#3292a8', displayName: "Contrast", defaultVal: 100 },
-  { id: 4, color: '#5e5e5e', displayName: "Grayscale", defaultVal: 0 },
-  { id: 5, color: '#5e5e5e', displayName: "Hue Rotate", defaultVal: 0 },
-  { id: 6, color: '#5e5e5e', displayName: "Invert", defaultVal: 0 },
-  { id: 7, color: '#5e5e5e', displayName: "Opacity", defaultVal: 0 },
-  { id: 8, color: '#5e5e5e', displayName: "Saturate", defaultVal: 0 },
-  { id: 9, color: '#5e5e5e', displayName: "Sepia", defaultVal: 0 }
+  { id: 1, color: '#52af77', displayName: "Blur", defaultVal: 0, maxVal: 30 },
+  { id: 2, color: '#32a852', displayName: "Brightness", defaultVal: 100, maxVal: 200 },
+  { id: 3, color: '#3292a8', displayName: "Contrast", defaultVal: 100, maxVal: 200 },
+  { id: 4, color: '#5e5e5e', displayName: "Grayscale", defaultVal: 0, maxVal: 100 },
+  { id: 5, color: '#5e5e5e', displayName: "Hue Rotate", defaultVal: 0, maxVal: 360 },
+  { id: 6, color: '#5e5e5e', displayName: "Invert", defaultVal: 0, maxVal: 100 },
+  { id: 7, color: '#5e5e5e', displayName: "Opacity", defaultVal: 0, maxVal: 100 },
+  { id: 8, color: '#5e5e5e', displayName: "Saturate", defaultVal: 0, maxVal: 100 },
+  { id: 9, color: '#5e5e5e', displayName: "Sepia", defaultVal: 0, maxVal: 100 }
 ];
 
 export default function EditPage() {

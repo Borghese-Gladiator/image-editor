@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 export default function InputSlider(props) {
   const classes = useStyles();
   // const { color, name, setParentValue } = props;
-  const { name, defaultValue, setParentValue } = props;
+  const { name, defaultValue, maxValue, setParentValue } = props;
   const [value, setValue] = React.useState(defaultValue);
 
   const handleSliderChange = (event, newValue) => {
@@ -25,6 +25,7 @@ export default function InputSlider(props) {
 
   const handleInputChange = (event) => {
     setValue(event.target.value === '' ? '' : Number(event.target.value));
+    setParentValue(event.target.value === '' ? value : Number(event.target.value));
   };
 
   const handleBlur = () => {
@@ -46,6 +47,7 @@ export default function InputSlider(props) {
         <Grid item xs={7}>
           <Slider
             value={typeof value === 'number' ? value : 0}
+            max={maxValue}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
             valueLabelDisplay="auto"

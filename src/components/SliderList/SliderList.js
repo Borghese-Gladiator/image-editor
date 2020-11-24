@@ -17,6 +17,7 @@ export default function SliderList(props) {
             color={val.color}
             name={val.displayName}
             defaultValue={val.defaultVal}
+            maxValue={val.maxVal}
             setParentValue={handleChange}
           />
         )
