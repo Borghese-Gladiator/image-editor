@@ -56,7 +56,7 @@ export default function Footer() {
       </Container>
       <br />
       <Container maxWidth="lg">
-        <h3 style={{textAlign: "center"}}>Easily Apply CSS Filter Effects on Images</h3>
+        <h2 style={{textAlign: "center"}}>Easily Apply CSS Filter Effects on Images</h2>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
         </Typography>
