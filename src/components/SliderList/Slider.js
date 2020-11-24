@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, Box, Grid, Container, Typography } from '@material-ui/core';
+import { Slider, Box, Grid, Typography } from '@material-ui/core';
 
 export default function CustomizedSlider(props) {
   // const { color, name, setParentValue } = props;
