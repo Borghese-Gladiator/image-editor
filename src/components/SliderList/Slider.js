@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { InputLabel, OutlinedInput, TextField, Slider, Box, Grid, Typography, Input } from '@material-ui/core';
-import { spacing } from '@material-ui/system';
+import { OutlinedInput, Slider, Box, Grid, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
