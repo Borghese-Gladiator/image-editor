@@ -12,7 +12,13 @@ export default function SliderList(props) {
         }
 
         return (
-          <Slider key={`${val.name}-${val.idx}`} color={val.color} name={val.name} setParentValue={handleChange} />
+          <Slider
+            key={`${val.displayName}-${val.idx}`}
+            color={val.color}
+            name={val.displayName}
+            defaultValue={val.defaultVal}
+            setParentValue={handleChange}
+          />
         )
       })}
     </div>

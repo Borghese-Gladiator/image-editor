@@ -3,9 +3,9 @@ import { Slider, Box, Grid, Container, Typography } from '@material-ui/core';
 
 export default function CustomizedSlider(props) {
   // const { color, name, setParentValue } = props;
-  const { name, setParentValue } = props;
+  const { name, defaultValue, setParentValue } = props;
 
-  const [value, setValue] = React.useState(30);
+  const [value, setValue] = React.useState(defaultValue);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
@@ -18,13 +18,11 @@ export default function CustomizedSlider(props) {
           {name}
         </Typography>
       </Grid>
-      
       <Grid item xs={9}>
         <Slider
           value={typeof value === 'number' ? value : 0}
           onChange={handleSliderChange}
           aria-labelledby="input-slider"
-          defaultValue={20} 
           valueLabelDisplay="auto"
           onChangeCommitted={(e, val) => {
             setParentValue(val);

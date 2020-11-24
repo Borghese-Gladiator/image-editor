@@ -24,32 +24,31 @@ const galleryImageList = [
 ];
 
 // each slider has unique identifer id
+// REMOVED drop-shadow(0px 0px 0px black)
 const sliderList = [
-  { id: 1, color: '#52af77', name: "Blur" },
-  { id: 2, color: '#32a852', name: "Brightness" },
-  { id: 3, color: '#3292a8', name: "Contrast" },
-  { id: 4, color: '#5e5e5e', name: "Drop Shadow" },
-  { id: 5, color: '#5e5e5e', name: "Grayscale" },
-  { id: 6, color: '#5e5e5e', name: "Hue Rotate" },
-  { id: 7, color: '#5e5e5e', name: "Invert" },
-  { id: 8, color: '#5e5e5e', name: "Opacity" },
-  { id: 9, color: '#5e5e5e', name: "Saturate" },
-  { id: 10, color: '#5e5e5e', name: "Sepia" }
+  { id: 1, color: '#52af77', displayName: "Blur", defaultVal: 0},
+  { id: 2, color: '#32a852', displayName: "Brightness", defaultVal: 100 },
+  { id: 3, color: '#3292a8', displayName: "Contrast", defaultVal: 100 },
+  { id: 4, color: '#5e5e5e', displayName: "Grayscale", defaultVal: 0 },
+  { id: 5, color: '#5e5e5e', displayName: "Hue Rotate", defaultVal: 0 },
+  { id: 6, color: '#5e5e5e', displayName: "Invert", defaultVal: 0 },
+  { id: 7, color: '#5e5e5e', displayName: "Opacity", defaultVal: 0 },
+  { id: 8, color: '#5e5e5e', displayName: "Saturate", defaultVal: 0 },
+  { id: 9, color: '#5e5e5e', displayName: "Sepia", defaultVal: 0 }
 ];
 
 export default function EditPage() {
   const classes = useStyles();
   const [filterObjList, setFilterObjList] = React.useState([
-    { id: 1, value: 20, name: "Blur" },
-    { id: 2, value: 20, name: "Brightness" },
-    { id: 3, value: 20, name: "Contrast" },
-    { id: 4, value: 20, name: "Drop Shadow" },
-    { id: 5, value: 20, name: "Grayscale" },
-    { id: 6, value: 20, name: "Hue Rotate" },
-    { id: 7, value: 20, name: "Invert" },
-    { id: 8, value: 20, name: "Opacity" },
-    { id: 9, value: 20, name: "Saturate" },
-    { id: 10, value: 20, name: "Sepia" }
+    { id: 1, value: 20, name: "blur", defaultVal: "0px" },
+    { id: 2, value: 20, name: "brightness", defaultVal: "100%" },
+    { id: 3, value: 20, name: "contrast", defaultVal: "100%" },
+    { id: 4, value: 20, name: "grayscale", defaultVal: "0%" },
+    { id: 5, value: 20, name: "hue-rotate", defaultVal: "0deg" },
+    { id: 6, value: 20, name: "invert", defaultVal: "0%" },
+    { id: 7, value: 20, name: "opacity", defaultVal: "100%" },
+    { id: 8, value: 20, name: "saturate", defaultVal: "100%" },
+    { id: 9, value: 20, name: "sepia", defaultVal: "0%" }
   ])
   const updateImageFilter = (newVal, id) => {
     setFilterObjList(
