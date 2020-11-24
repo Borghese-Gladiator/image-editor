@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, Box, Container, Typography } from '@material-ui/core';
+import { Slider, Box, Grid, Container, Typography } from '@material-ui/core';
 
 export default function CustomizedSlider(props) {
   // const { color, name, setParentValue } = props;
@@ -13,24 +13,28 @@ export default function CustomizedSlider(props) {
 
   return (
     <Box display="flex" flexDirection="row">
-      <Container>
+      <Grid item xs={3}>
         <Typography id="discrete-slider-small-steps" gutterBottom>
           {name}
         </Typography>
-      </Container>
+      </Grid>
       
-      <Slider
-        value={typeof value === 'number' ? value : 0}
-        onChange={handleSliderChange}
-        aria-labelledby="input-slider"
-        defaultValue={20} 
-        onChangeCommitted={(e, val) => {
-          setParentValue(val);
-        }}
-      />
+      <Grid item xs={9}>
+        <Slider
+          value={typeof value === 'number' ? value : 0}
+          onChange={handleSliderChange}
+          aria-labelledby="input-slider"
+          defaultValue={20} 
+          valueLabelDisplay="auto"
+          onChangeCommitted={(e, val) => {
+            setParentValue(val);
+          }}
+        />
+      </Grid>
     </Box>
   );
 }
+
 /*
   const PrettoSlider = withStyles({
     root: {
