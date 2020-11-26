@@ -6,7 +6,7 @@ import { ResizableBox } from 'react-resizable';
 // custom components
 import ImageUpload from '../components/ImageUpload';
 import SliderList from '../components/SliderList';
-import './blah.css'
+import './resizable-box.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
