@@ -1,9 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
+// resizable package
+import { Resizable, ResizableBox } from 'react-resizable';
 // custom components
 import ImageUpload from '../components/ImageUpload';
 import SliderList from '../components/SliderList';
+import './blah.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,18 +63,35 @@ export default function EditPage() {
         return item;
       })
     )
-  }
+  };
 
   return (
-    <Container className={classes.root}>
+    <div className={classes.root}>
       <Grid container spacing={3} className={classes.containerRoot} >
-        <Grid item xs={6} sm={6}>
+        <ResizableBox
+          className="custom-box box"
+          width={600}
+          height={200}
+          handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
+          handleSize={[8, 8]}
+          resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}
+        >
           <ImageUpload cardName="Input Image" imageGallery={galleryImageList} filterObjList={filterObjList} />
-        </Grid>
+        </ResizableBox>
         <Grid item xs={6} sm={6}>
+          <Typography variant="h4">
+            Filters
+          </Typography>
           <SliderList sliderList={sliderList} updateImageFilter={updateImageFilter} />
         </Grid>
       </Grid>
-    </Container>
+    </div>
   )
 }
+
+
+/*
+<ResizableBox className="box" width={200} height={200} minConstraints={[100, 100]} style={{background: "black"}}>
+<ImageUpload cardName="Input Image" imageGallery={galleryImageList} filterObjList={filterObjList} />
+</ResizableBox>
+*/
