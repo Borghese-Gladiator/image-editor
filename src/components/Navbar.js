@@ -16,8 +16,13 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(2),
     },
   },
+  flexCenter: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   logo: {
-    height: '50px',
+    height: '80px',
   },
 }));
 
@@ -28,19 +33,16 @@ export default function PrimaryNavbar(props) {
   return (
     <div className={classes.grow}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.flexCenter}>
           <Button 
-            edge="start"
             aria-label={"back to home image"}
             color="inherit"
-            className={classes.title}
           >
             <Typography variant="h6" display="block" gutterBottom>
-              {"Image Editor"}
+              {""}
             </Typography>
             <img src={logo} className={classes.logo} alt="logo" />
           </Button>
-          <div className={classes.grow} />
         </Toolbar>
       </AppBar>
     </div>
