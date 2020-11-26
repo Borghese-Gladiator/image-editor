@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -16,24 +18,32 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(2),
     },
   },
-  flexCenter: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   logo: {
     height: '80px',
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
   },
 }));
 
 export default function PrimaryNavbar(props) {
   const classes = useStyles();
   const { logo } = props;
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
   
   return (
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className={classes.flexCenter}>
+          
+          <div className={classes.grow} />
           <Button 
             aria-label={"back to home image"}
             color="inherit"
@@ -43,8 +53,18 @@ export default function PrimaryNavbar(props) {
             </Typography>
             <img src={logo} className={classes.logo} alt="logo" />
           </Button>
+          
+          <div className={classes.grow} />
+          <Button variant="contained" color="secondary" onClick={handleToggle} >
+            HOW TO USE
+          </Button>
         </Toolbar>
+        <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
       </AppBar>
     </div>
   );
 }
+
+
