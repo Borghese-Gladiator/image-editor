@@ -1,8 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 // resizable package
-import { Resizable, ResizableBox } from 'react-resizable';
+import { ResizableBox } from 'react-resizable';
 // custom components
 import ImageUpload from '../components/ImageUpload';
 import SliderList from '../components/SliderList';
