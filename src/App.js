@@ -8,22 +8,17 @@ import EditPage from './pages/EditPage';
 
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['Select Your Image', 'Apply CSS Filters on Your Image', 'Save Your Image'];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`;
+      return `To try out the tool you can choose one of the example images on the right button or you can upload an image from your computer with the left butotn.`;
     case 1:
-      return 'An ad group contains one or more ads which target a shared set of keywords.';
+      return 'Filters are set to show the default image. Choose the CSS Filter you want to change certain attributes.';
     case 2:
-      return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
+      return `If in chrome, right-click and select save image as to save it to your computer`;
     default:
       return 'Unknown step';
   }
