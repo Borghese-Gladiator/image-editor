@@ -11,6 +11,7 @@ import './resizable-box.css'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    padding: 20 // needed for nested grid to not have horizontal scrollbar
   },
   containerRoot: {
     padding: theme.spacing(10, 0, 30),
@@ -67,18 +68,18 @@ export default function EditPage() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3} className={classes.containerRoot} >
+      <Grid container spacing={2} className={classes.containerRoot} >
         <ResizableBox
           className="custom-box box"
-          width={600}
-          height={200}
+          width={733}
+          height={450}
           handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
           handleSize={[8, 8]}
           resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}
         >
           <ImageUpload cardName="Input Image" imageGallery={galleryImageList} filterObjList={filterObjList} />
         </ResizableBox>
-        <Grid item xs={6} sm={6}>
+        <Grid item xs={4} sm={5}>
           <Typography variant="h4">
             Filters
           </Typography>
