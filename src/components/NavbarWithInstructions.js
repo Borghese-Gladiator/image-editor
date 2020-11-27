@@ -5,11 +5,10 @@ import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Backdrop from '@material-ui/core/Backdrop';
-
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Container from '@material-ui/core/Container';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+
 import CancelIcon from '@material-ui/icons/Cancel';
 
 // custom components
