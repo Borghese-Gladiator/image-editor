@@ -30,8 +30,8 @@ export default function InputSlider(props) {
   const handleBlur = () => {
     if (value < 0) {
       setValue(0);
-    } else if (value > 100) {
-      setValue(100);
+    } else if (value > maxValue) {
+      setValue(maxValue);
     }
   };
 
