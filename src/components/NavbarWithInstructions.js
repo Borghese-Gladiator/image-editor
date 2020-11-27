@@ -37,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function PrimaryNavbar(props) {
+export default function NavbarWithInstructions(props) {
   const classes = useStyles();
-  const { logo } = props;
+  const { logo, getSteps, getStepContent } = props;
   const [open, setOpen] = React.useState(false);
   
   const handleClose = () => {
@@ -75,7 +75,7 @@ export default function PrimaryNavbar(props) {
                 {open ? (
                   <Backdrop className={classes.backdrop} open={open}>
                     <Container style={{display: "flex"}}>
-                      <BackdropStepper />
+                      <BackdropStepper getSteps={getSteps} getStepContent={getStepContent} />
                       <Fab color="secondary" aria-label="add" onClick={handleClose} className={classes.negativeMarginUp}>
                         <CancelIcon fontSize="large" />
                       </Fab>
