@@ -65,7 +65,7 @@ export default function InputSlider(props) {
             inputProps={{
               step: 10,
               min: 0,
-              max: 100,
+              max: maxValue,
               type: 'number',
               'aria-labelledby': 'input-slider',
             }}
